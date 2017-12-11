@@ -1,0 +1,84 @@
+<!DOCTYPE HTML>
+
+<html>
+<head>
+	
+
+</head>
+<body>
+	<div>
+    	<input type="file" id="file" />
+    	<input type="button" value="Grey it" id="greyit" />
+  	</div>
+  	<div id="image-container">
+		<canvas id="c" width="500" height="500"></canvas>
+	</div>
+	<script type="text/javascript">
+		var canvas = document.querySelector("#c");
+		var ctx = canvas.getContext("2d");
+
+		// 4 bytes for every pixel - RGB and alpha
+
+		// For putting green in every ten pixels
+		// var origImg = ctx.getImageData(0, 0, canvas.width, canvas.height);
+		// var imgData = origImg.data;
+		// var itr = 0;
+		// while (itr < imgData.length) {
+		// 	imgData[itr+1] = 255;
+		// 	imgData[itr+3] = 255;
+		// 	itr += 40;
+		// };
+		// ctx.putImageData(origImg, 0, 0);
+
+
+		// Grey scaling of the image
+		function handleFileSelect(evt) {
+      		var file = evt.target.files[0];
+      		
+      		var reader = new FileReader();
+      		reader.onload = function(fileObject) {
+        		var data = fileObject.target.result;
+        		        		
+        		// Create an image object
+        		var image = new Image();
+        		image.onload = function() {
+        			window.imageSrc = this;
+          			ctx.drawImage(window.imageSrc, 0, 0, canvas.width, 
+          							canvas.height);
+        		}
+        
+        		// Set image data to background image.
+        		image.src = data;
+      		};
+      		reader.readAsDataURL(file);
+	   	}
+
+      	function handleBtnPress(evt) {
+      		var origImg = ctx.getImageData(0, 0, canvas.width, canvas.height);
+			var imgData = origImg.data;
+			var itr = 0;
+		
+      		for (var itr = 0; itr < imgData.length; itr += 4)
+      		{
+      			var brightness = 0.34 * imgData[itr] + 0.5 * imgData[itr + 1] +
+      							 0.16 * imgData[itr + 2];
+      			imgData[itr] = brightness;
+				imgData[itr+1] = brightness;
+				imgData[itr+2] = brightness;
+			};
+
+			// Putting the image back on the context
+			ctx.putImageData(origImg, 0, 0);   
+      	}
+
+		document.getElementById('file').addEventListener('change', handleFileSelect, false);
+		document.getElementById('greyit').addEventListener('click', handleBtnPress, false);
+    
+		// console.log(imgData.length);
+		// console.log(origImg.width);
+		// console.log(origImg.height);
+
+	</script>
+
+</body>
+</html>

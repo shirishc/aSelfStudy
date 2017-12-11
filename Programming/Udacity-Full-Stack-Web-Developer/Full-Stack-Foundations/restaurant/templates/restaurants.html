@@ -1,0 +1,36 @@
+<html>
+	<body>
+		<div class="pane">
+			<div class="header">
+				<h1>List of Restaurants</h1>
+			</div>
+
+		<!-- MESSAGE FLASHING EXAMPLE -->
+		<div class="flash">
+			{% with messages = get_flashed_messages() %}
+				{% if messages %}
+					<ul>
+						{% for message in messages %}
+							<li><strong>{{message}}</strong></li>
+						{% endfor %}		
+					</ul>
+				{% endif %}
+			{% endwith %}
+		</div>
+
+		<a href="{{url_for('newRestaurant')}}">Create New Restaurant</a>
+		</br><br>
+		
+		{% for aRest in restaurants %}
+			<div class="name">{{aRest.name}}</div>
+			<br>
+			<div class="editdeletepane">
+				<a href="{{url_for('restaurantMenu', restaurant_id = aRest.id)}}">Menu</a>
+				<a href="{{url_for('editRestaurant', restaurant_id = aRest.id)}}">Edit</a>
+				<a href="{{url_for('deleteRestaurant', restaurant_id = aRest.id)}}">Delete</a>
+			</div>
+			<br><br>
+		{% endfor %}
+		</div>
+	</body>
+</html>

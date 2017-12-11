@@ -1,0 +1,176 @@
+<!-- Different headers etc. that need to be put in HTML for good practises
+Telling it that the viewport and CSS pixel = Viewport pixel
+ -->
+
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Specify relative width for elements to accidentally avoid overflowing the viewport - in CSS files
+ -->
+<style type="text/css">
+	img, embed, object, video {
+		max-width: 100%;
+	}	
+</style>
+
+<!-- Buttons or any other click/touch targets - should be at least 48pxs wide as the fingers are usually that wide. Non-responsive websites have really clittered/small links and buttons
+ -->
+<style type="text/css">
+	nav, a, button {
+		min-width: 48px;
+		min-height: 48px;
+	}	
+</style>
+
+<!-- Sometimes just using Padding: 1.5em might be enough to give tags a distance of 48x48 if the text has some length. So this might be used instead of doing the 48x48 explicitly
+ -->
+
+<!-- One of the great ways to get a different experience in screens of different size is to use different style sheets using the keyword "media" - typically only screen and print
+ -->
+<link rel="stylesheet" href="style.css">
+AND
+<link rel="stylesheet" media="screen and (min-width: 500px)" href="over500.css">
+
+
+<!-- Other way is to use media tag in CSS - typically with min-width or max-width but NOT min-device-width or max-device-width
+ -->
+
+<style type="text/css">
+	@media screen and (min-width:500px) {
+		body { background-color: green; }
+	}
+</style>
+
+OR 
+
+(The import tag is too expensive and should be avoided)
+<style type="text/css">
+	@import url("no.css") only screen and (min-widht: 500px);
+</style>
+
+<!-- Another syntax - -->
+
+<style type="text/css">
+	@media screen and (max-width:500px) {
+		.yes {
+			opacity: 1;
+		}
+		.no {
+			opacity: 0;
+		}
+	}
+</style>
+
+<!-- Flexbox and Flex grid layout for better row-column 
+layout design
+	Already there in bootstrap css - 
+ -->
+
+ <style type="text/css">
+	.comtainer {
+		display: flex;
+		flex-wrap: wrap;
+	}
+</style>
+
+<!-- Different responsive layout patters
+1. Mostly Fluid - Similar to column Drop but with more grid
+2. Column Drop - Simple column wrap achieved with flex-wrap
+3. Layout shifter - Order changes as well and uses order: 
+4. Off-canvas - Less used contents off the screen and can come in or get out at desire - hamburger menu
+ -->
+<!-- Off  canvas example - see the actual html for more details
+ -->
+<script type="text/javascript">
+	menu.addEventListener('click', function(e) {
+	  drawer.classList.toggle('open');
+	  e.stopPropagation();
+	});	
+</script>
+
+<style type="text/css">
+	.nav {
+	  width: 300px;
+	  height: 100%
+	  position: absolute;
+	  /* This trasform moves the drawer off canvas. */
+	  -webkit-transform: translate(-300px, 0);
+	  transform: translate(-300px, 0);
+	  /* Optionally, we animate the drawer. */
+	  transition: transform 0.3s ease;
+	}
+	.nav.open {
+	  -webkit-transform: translate(0, 0);
+	  transform: translate(0, 0);
+	}	
+</style>
+
+<!-- If the screen grows above a point, then nav and body can co-exist -->
+
+<style type="text/css">
+	@media screen and (min-width: 600px) {
+	nav {
+		position: relative;
+		transform: translate(0, 0);
+	}
+	box {
+		display: flex;
+		flex-flow: row nowrap;
+	}
+	main {
+		width: auto;
+		flex-grow: 1;
+	}
+}
+</style>
+
+<!-- Optimisations -->
+
+<!-- Images  -->
+<!-- Changing resolutions for different screen size -->
+
+<!-- How to handle responsive tables - 3 main strategies among many others
+
+1. Hidden columns - Hide unimportant columns - playing with content and hiding information
+2. No more tables - Transpose or collapse or something
+3. Contained tables
+
+ -->
+
+<!-- Hidden Columns technique -->
+
+<style type="text/css">
+	@media screen and (max-width: 499px) {
+		.hidingClass {
+			display: none;
+		}
+	}	
+</style>
+
+<!-- No more tables technique
+The table is collapsed and it is made more in to a list or a long table or transpose etc to display more data inthe viewport  -->
+
+<style type="text/css">
+	@media screen and (max-width: 499px) {
+		table, thead, tbody, th, td, tr {
+			display: block; /* No longer a table -->*/
+		}
+	}
+	thead tr { /* Taking the header way off the screen instead of display:none as the header will not be read for people with accessability problems */
+		position: absolute;
+		top: -99999px;
+		left: -99999px;
+	}
+	td { /* */
+		position: relative;
+		padding-left: 50%;
+	}
+	td:before {
+		position: absolute;
+		left: 6px;
+		content: attr(data-th);
+		font-weight: bold;
+	}
+</style>
+
+<!-- Contained tables  
+Wrap the table in diff and set width - 100% and overflow-x to auto-->

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  	<meta charset="utf-8">
+  	<title>Project Map</title>
+	<script src="js/jQuery.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js" async defer></script>
+	<script type="text/javascript" src="js/main.js" async defer></script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBFApQ_p6jluTJdUDgRcObUEau6LKH8m_A&libraries=places"></script>
+  	<link rel="stylesheet" href="css/bootstrap.min.css">
+  	<link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+	        <div class="col-md-6"><img src="./bootstrap-prestructure_files/100x100" alt="Logo"></div>
+	        <div class="col-md-6 text-right text-uppercase">
+	          <h1>Crystal Ball</h1>
+	          <h3>Tool of the explorers</h3>
+	        </div>
+	    </div>
+        <div class="row">
+	        <div class="col-md-12">
+	          <hr>
+	        </div>
+	    </div>
+	    <br><br><br>
+		<div class="row">
+			<div class="col-md-12 center-block">
+				<form id="srchForm">
+	       			<input id="location" type="search" placeholder="Where do you want to go today?">
+	        		<input type="submit">
+	        		<input id="restaurants" type="checkbox">Restaurants
+	        		<input id="hotels" type="checkbox">Hotels
+	        		<input id="barsnPubs" type="checkbox">BarsnPubs
+	      		</form>
+      		</div>
+		</div>
+		<br><br><br>
+		<div class="row">
+			<div class="col-md-12 center-block" id="mapContainer">
+      		</div>
+		</div>
+	</div>
+</body>
+
+</html>

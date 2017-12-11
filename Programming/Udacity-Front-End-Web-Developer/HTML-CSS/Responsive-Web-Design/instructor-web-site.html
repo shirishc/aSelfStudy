@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<!-- saved from url=(0069)http://udacity.github.io/RWDF-samples/quizzes/custom-device-quiz.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./instructor-web-site_files/default-styles.css">
+    <style type="text/css">
+      html, body {
+        height: 100%;
+      }
+      body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .container {
+        width: 100%;
+        text-align: center;
+        font-size: 8em;
+      }
+    </style>
+  <link rel="stylesheet" href="./instructor-web-site_files/font-awesome.min.css"></head>
+  <body>
+    <div class="container">1217 px</div>
+
+    <script type="text/javascript">
+      var container = document.querySelector(".container");
+
+      function tick() {
+        var width = window.innerWidth;
+        container.textContent = width + " px";
+        window.requestAnimationFrame(tick);
+      }
+
+      window.requestAnimationFrame(tick);
+
+    </script>
+    <script src="./instructor-web-site_files/ud-testing-lib.js"></script>
+    <script src="./instructor-web-site_files/custom-device-quiz.js"></script><div class="grade-display" style="position: absolute; min-width: 200px; right: 0px; top: 0px; padding: 0.5em; background-color: rgba(112, 128, 144, 0.901961);"><div class="udTest" style="color: red;">User Agent is set correctly.<i class="fa fa-times"></i></div><div class="udTest" style="color: red;">Viewport width is 412px.<i class="fa fa-times"></i></div><div class="udTest" style="color: red;">Viewport height is 603px.<i class="fa fa-times"></i></div><div class="udTest" style="color: red;">Device Pixel Ratio is 3.5.<i class="fa fa-times"></i></div></div>
+  
+
+</body></html>

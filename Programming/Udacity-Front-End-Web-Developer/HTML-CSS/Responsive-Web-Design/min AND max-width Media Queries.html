@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<!-- saved from url=(0069)http://udacity.github.io/RWDF-samples/quizzes/media-queries-quiz.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>min AND max-width Media Queries</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./min AND max-width Media Queries_files/default-styles.css">
+    <style type="text/css">
+      h1 {
+        position: absolute;
+        text-align: center;
+        width: 100%;
+        font-size: 6em;
+        font-family: Roboto;
+        transition: all 0.5s;
+      }
+
+      body { 
+        background-color: green; 
+      }
+      @media screen and (max-width: 400px) {
+        body { background-color: red; }
+      }
+
+      @media screen and (min-width: 600px)  {
+        body { background-color: blue; }
+      }
+
+    </style>
+  <link rel="stylesheet" href="./min AND max-width Media Queries_files/font-awesome.min.css"></head>
+  <body>
+    <div class="container">
+      <h1 class="yes">This is diff page content.</h1>
+      <p>media queries. Media queries. Media queries! MEDIA QUERIES!</p>
+    </div>
+    <script src="./min AND max-width Media Queries_files/ud-testing-lib.js"></script>
+    <script src="./min AND max-width Media Queries_files/media-queries-quiz.js"></script>
+  
+
+<div class="grade-display" style="position: absolute; min-width: 200px; right: 0px; top: 0px; padding: 0.5em; background-color: rgba(112, 128, 144, 0.901961);"><div class="udTest" style="color: red;">Under 400px wide, the body is red.<i class="fa fa-times"></i></div><div class="udTest" style="color: red;">Between 401 and 599px wide, the body is green.<i class="fa fa-times"></i></div><div class="udTest" style="color: red;">Greater than 600px wide, the body is blue.<i class="fa fa-times"></i></div></div><iframe class="mq-test" src="about:blank" style="position: absolute; left: 100%; width: 650px;"></iframe></body></html>

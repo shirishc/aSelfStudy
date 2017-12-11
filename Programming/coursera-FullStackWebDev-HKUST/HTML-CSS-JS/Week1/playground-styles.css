@@ -1,0 +1,59 @@
+p {
+  color:blue;
+}
+#purple {
+  background:purple;
+}
+#indigo {
+  background:indigo;
+}
+#blue {
+  background:blue;
+}
+#green {
+  background:green;
+}
+#yellow {
+  background:yellow;
+}
+#orange {
+  background:orange;
+}
+#red {
+  background:red;
+}
+
+ol li {
+  color:white;
+}
+
+h1:hover {
+  background: black;
+  color:white;
+}
+
+table, td, th {
+  border:1px solid black;
+  width:30%;
+  color: purple;
+}
+
+.vt {
+  vertical-align: top;
+}
+.vb {
+  vertical-align: bottom;
+}
+.vc {
+  vertical-align: center;
+}
+
+.hl {
+  text-align: left;
+}
+.hr {
+  text-align: right;
+}
+.hc {
+  text-align: center;
+}

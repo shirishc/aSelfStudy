@@ -1,0 +1,63 @@
+<!DOCTYPE HTML>
+
+<html>
+<head>
+	
+
+</head>
+<body>
+	<canvas id="c" width="500" height="500" ></canvas>
+	<script type="text/javascript">
+		var c = document.querySelector("#c");
+		var ctx = c.getContext("2d");
+
+		// ctx.fillRect(100, 100, 100, 100);
+		// ctx.clearRect(100, 100, 100, 100);
+
+/* Exercise 1 
+
+		ctx.strokeRect(50, 50, 100, 100);
+
+		ctx.beginPath();
+		ctx.moveTo(75,75);
+		ctx.lineTo(125, 125);
+		ctx.lineTo(125, 75);
+		ctx.lineTo(75, 75);
+
+		ctx.fill();
+*/
+		// ctx.stroke();
+/* Exercise 2 */
+		ctx.fillStyle = 'blue';
+		ctx.translate(30, 30);
+		ctx.fillRect(0, 0, 30, 30);
+		ctx.restore();
+
+		ctx.save(); // Saves the current state of context here and can be restored later to this state
+		ctx.rotate(Math.PI/4);
+		ctx.translate(30, 0);
+		
+		ctx.fillStyle = 'green';
+		ctx.fillRect(0, 0, 30, 30);
+
+		// ctx.restore(); - Restore here to get back the saved context
+		ctx.fillStyle = 'red';
+		ctx.fillRect(0, 0, 10, 10);
+
+		ctx.strokeStyle = 'green';
+		ctx.fillText("FILL TEXT EXAMPLE", 50, 50);
+		ctx.strokeText("STROKE TEXT EXAMPLE", 70, 70);
+
+		ctx.restore();
+		ctx.textAlign = 'center';
+		ctx.fillStyle = 'white';
+		ctx.strokeStyle = 'black';
+		ctx.lineWidth = 3;
+		ctx.font = '36pt Impact';
+		ctx.fillText("CANVAS MEMES!", c.width/2, 50);
+		ctx.strokeText("CANVAS MEMES!", c.width/2, 50);
+		// ctx.scale(x, y);
+	</script>
+
+</body>
+</html>
