@@ -102,6 +102,6 @@ def display_faces_with_keyword_in_zipfile(in_keyword, z_file_name):
     display_face_if_keyword(img_dict, in_keyword)
     return # ret_images_dict
     
- display_faces_with_keyword_in_zipfile(keyword_1, file_1)
- 
- display_faces_with_keyword_in_zipfile(keyword_2, file_2)
+display_faces_with_keyword_in_zipfile(keyword_1, file_1)
+
+display_faces_with_keyword_in_zipfile(keyword_2, file_2)
